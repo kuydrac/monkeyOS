@@ -1,8 +1,7 @@
 #include <string.h>
 
 void hex_to_ascii(int n, char* str){
-    strappend(str, '0');
-    strappend(str, 'x');
+    memset(str,0,strlen(str));
     char zeros = 0;
 
     int tmp;
