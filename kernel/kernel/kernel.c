@@ -13,6 +13,16 @@ void kernel_init(){
 
 void test_terminal(){
     printf("Hello World!\n");
+
+    char *test = "";
+    int_to_ascii(1034,test);
+    printf("%s\n",test);
+
+    hex_to_ascii(0x3f4e7,test);
+    printf("%s\n",test);
+
+    printf("Test hex: 0x%x\n",0x1234dead);
+    printf("Test hex: 0x%x\n",0xa5a5);
 }
 
 void test_serial(){
