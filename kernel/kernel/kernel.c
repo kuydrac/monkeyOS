@@ -4,22 +4,28 @@
 #include <kernel/serial.h>
 #include <kernel/isr.h>
 
-void kernel_main(){
+void kernel_init(){
     isr_install();
     irq_install();
     terminal_initialize();
-    printf("Hello World!\n");
     serial_configure(1);
+}
+
+void test_terminal(){
+    printf("Hello World!\n");
+}
+
+void test_serial(){
     char *test = "hey!\n";
     serial_write(1,test,strlen(test));
+}
+
+void test_isr(){
     asm("int $2");
     asm("int $3");
-    char *test2 = "hey2!\n";
-    serial_write(1,test2,strlen(test2));
-    char *test3 = "hey3!\n";
-    serial_write(1,test3,strlen(test3));
+}
 
-    /*
+void test_irq_timer(){
     char test4[32];
     while(1){
         printf("Tick: ");
@@ -27,8 +33,11 @@ void kernel_main(){
         printf(test4);
         printf("\n");
     }
-    */
-    printf("Type. Kernel will process it\nType END to halt the CPU\n> ");
+}
+
+void test_irq(){
+    // test_irq_timer does not return
+    //test_irq_timer();
 }
 
 void user_input(char *input){
@@ -39,4 +48,15 @@ void user_input(char *input){
     printf("You said: ");
     printf(input);
     printf("\n> ");
+}
+
+void kernel_main(){
+    kernel_init();
+
+    test_terminal();
+    test_serial();
+    test_isr();
+    test_irq();
+
+    printf("Type. Kernel will process it\nType END to halt the CPU\n> ");
 }
