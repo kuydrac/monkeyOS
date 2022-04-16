@@ -1,5 +1,8 @@
 #include <kernel/idt.h>
 
+idt_gate_t idt[IDT_ENTRIES];
+idt_register_t idt_reg;
+
 void set_idt_gate(int n, uint32_t handler){
     idt[n].low_offset = handler & 0xFFFF;
     idt[n].sel = KERNEL_CS;
