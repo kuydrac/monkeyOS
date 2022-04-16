@@ -64,7 +64,7 @@ int printf(const char* restrict format, ...) {
 		} else if (*format == 'x') {
 			format++;
 			int i = va_arg(parameters, int);
-			char* str;
+			char str[32];
 			hex_to_ascii(i, str);
 			size_t len = strlen(str);
 			if (maxrem < len) {

@@ -3,6 +3,7 @@
 #include <kernel/tty.h>
 #include <kernel/serial.h>
 #include <kernel/isr.h>
+#include <kernel/timer.h>
 
 void kernel_init(){
     isr_install();
