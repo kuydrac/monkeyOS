@@ -8,7 +8,7 @@ export HOST=${HOST:-$(${SCRIPT_DIR}/default-host.sh)}
 export AR=${HOST}-ar
 export AS=${HOST}-as
 export CC=${HOST}-gcc
-export GDB=${HOST}-gdb
+export GDB=gdb
 
 export PREFIX=/usr
 export EXEC_PREFIX=$PREFIX
