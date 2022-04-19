@@ -15,7 +15,7 @@ void kernel_init(){
 void test_terminal(){
     printf("Hello World!\n");
 
-    char *test = "";
+    char test[32];
     int_to_ascii(1034,test);
     printf("%s\n",test);
 
@@ -24,6 +24,10 @@ void test_terminal(){
 
     printf("Test hex: 0x%x\n",0x1234dead);
     printf("Test hex: 0x%x\n",0xa5a5);
+
+    printf("Test backspace");
+    printf("\b");
+    printf("\n");
 }
 
 void test_serial(){
